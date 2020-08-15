@@ -11,7 +11,8 @@ Product.belongsTo(Category, {
 
 // Categories have many Products
 Category.hasMany(Product, {
-  foreignKey: 'category_id'
+  foreignKey: 'product_id'
+  //do I have to add 'product_id' to category model? Maybe
 });
 
 // Products belongToMany Tags (through ProductTag)
