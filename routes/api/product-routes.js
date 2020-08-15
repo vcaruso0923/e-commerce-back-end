@@ -14,6 +14,8 @@ router.get('/', (req, res) => {
       },
       {
         model: Tag,
+        through: ProductTag,
+        as: 'tagged_products'
       }
     ]
   })
@@ -37,6 +39,8 @@ router.get('/:id', (req, res) => {
       },
       {
         model: Tag,
+        through: ProductTag,
+        as: 'tagged_products'
       }
     ]
   })
@@ -55,7 +59,7 @@ router.get('/:id', (req, res) => {
 
 // create new product
 router.post('/', (req, res) => {
-  post.create({
+  Product.create({
     product_name: req.body.product_name,
     price: req.body.price,
     stock: req.body.stock,
